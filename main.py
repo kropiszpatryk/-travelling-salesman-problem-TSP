@@ -1,6 +1,6 @@
 #ESI
 import random
-
+import math
 def read_file_127():
     f = open("bier127.tsp", "r")
     file_127 = f.readlines()
@@ -55,9 +55,65 @@ def do_144():
     #mutacja
     mutation_list = []
     mutation_list = ile_os_list + intersection_list_results
-    print(len(mutation_list)) # długość listy po krzyzowaniu
-   #print(mutation_list)
+   # print(len(mutation_list)) # długość listy po krzyzowaniu
+    for x in range(0, len(mutation_list)):
+        #print(mutation_list[x])
+        w_lb_psl2 = random.random()
+        if w_lb_psl2 <= pr_mut:
+            rd = random.randint(0,143)
+            rd2 = random.randint(0,143)
+            while True:
+                if rd == rd2:
+                    rd2 = random.randint(0, 143)
+                else:
+                    break
+            #for a in len(mutation_list[x]):
+            hej = mutation_list[x][rd]
+            mutation_list[x][rd] = mutation_list[x][rd2]
+            mutation_list[x][rd2] = hej
 
+
+
+    #selekcja
+    print(len(mutation_list))
+    print(len(tup_144))
+    for x in range(0, len(mutation_list)):
+        print(mutation_list[x])
+        first_x = 0
+        first_y = 0
+        second_x = 0
+        second_y = 0
+        result_xy = 0
+        for z in range(0, len(mutation_list[x])):
+            for a in range(0, len(tup_144)):
+                if (mutation_list[x][z])-1 == a:
+                    print(mutation_list[x][z])
+                    print(tup_144[a])
+                    first_x = tup_144[a][0]
+                    first_y = tup_144[a][1]
+                if z == 143:
+                    print(mutation_list[x][0])
+                    print(tup_144[a])
+                    second_x = tup_144[a][0]
+                    second_y = tup_144[a][1]
+                else:
+                    print(mutation_list[x][z+1])
+                    print(tup_144[a])
+                    second_x = tup_144[a][0]
+                    second_y = tup_144[a][1]
+            result_xy += math.fabs(first_x - second_x) + math.fabs(first_y - second_y)
+
+            print(second_x, second_y)
+            print(result_xy)
+            print(mutation_list[x][0])
+      #  for u in range(0, len(tup_144)):
+            #if mutation_list[x][0] -1 == u:
+              #  result_xy += math.fabs(tup_144[u][0]-second_x) + math.fabs(tup_144[u][1] - second_y)
+
+              #  print(tup_144[u][0])
+         #   print(result_xy)
+        break
+                #mutation_list[x][z] - mutation_list[x][z+1]
 
 
 def do_127():
@@ -78,6 +134,7 @@ def do_127():
 
 ile_os = 200
 pr_krzyz = 0.5
+pr_mut = 0.5
 tup_144 = []
 tup_127 = []
 list_127 = []
