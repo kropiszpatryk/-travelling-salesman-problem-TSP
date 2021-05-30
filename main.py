@@ -4,8 +4,8 @@ import math
 
 
 def read_file_144():
-    #file = input("Podaj nazwe pliku")
-    f = open("bier127.tsp", "r")
+    file = input("Podaj nazwe pliku")
+    f = open(file, "r")
     file_144 = f.readlines()
     f.close()
     return file_144
@@ -29,7 +29,7 @@ def do_first():
 
 def intersection():   #krzyzowanie
     intersection_list = []
-    osobnik2 = 0
+    #osobnik2 = 0
     for x in range(0,ile_os):
         intersection_list.append(x)
     random.shuffle(intersection_list)
