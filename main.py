@@ -10,7 +10,7 @@ def read_file_144():
     f.close()
     return file_144
 
-def XD():
+def read_file():
     global list_144
     list_144 = read_file_144()
 
@@ -124,7 +124,7 @@ def sortt():
 def start():
     czas = int(input("Podaj czas wykonywania programu w sekundach: "))
     startTime = time.time()
-    XD()
+    read_file()
     for x in range(0,10):
         ile_os_list.clear()
         do_first()
