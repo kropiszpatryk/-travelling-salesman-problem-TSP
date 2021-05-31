@@ -71,7 +71,7 @@ def intersection():   #krzyzowanie
     #print(r2)
     #print(p2)
    # print(intersection_list_results)
-    #print(len(r1+p2))
+    #print(len(r1+p2)
 
 
 def mutation():   #mutacja
@@ -135,23 +135,6 @@ def start():
         sortt()
     with open("esi_db.txt", "a") as f:
         print("******************************", file=f)
-   # selection()
-#def do_127():
-
-
- #   ile_os_list = []
-  #  list_127 = read_file_127()
-   # for x in list_127[6:-1]:
-    #    changed_127 = x.split()[1:]
-     #   tup1 = (int(changed_127[0]),int(changed_127[1]))
-      #  tup_127.append(tup1)
-    #for a in range(1, ile_os + 1):
-     #   os_127 = []
-      #  for x in range(1, 145):
-       #     os_127.append(x)
-        #random.shuffle(os_127)
-        #ile_os_list.append(os_127)
-    #print(tup_127)
 
 
 ile_os = 200
