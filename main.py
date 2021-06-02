@@ -55,23 +55,7 @@ def intersection():   #krzyzowanie
                 if r2[e] != -1:
                     p2.append(r2[e])
             intersection_list_results.append(r1+p2)
-   # print("XDXDXDXDXDXDXDXDXD")
-   # print(ile_os_list)
-            #print(intersection_list_results)
-            #print(r1)
-           # print(p2)
-            #print(intersection_list_results)
-           # print(len(r1))
-            #print(len(r2))
-           # print(len(p2))
-            #print(len(intersection_list_results))
-    #intersection_list_results.clear()
-   # intersection_list.clear()
-    #print(r1)
-    #print(r2)
-    #print(p2)
-   # print(intersection_list_results)
-    #print(len(r1+p2)
+
 
 
 def mutation():   #mutacja
@@ -90,10 +74,10 @@ def mutation():   #mutacja
                 else:
                     break
             #for a in len(mutation_list[x]):
-            hej = mutation_list[x][rd]
+            change = mutation_list[x][rd]
             #print(mutation_list[x])
             mutation_list[x][rd] = mutation_list[x][rd2]
-            mutation_list[x][rd2] = hej
+            mutation_list[x][rd2] = change
     ile_os_list = mutation_list
 
 
@@ -112,15 +96,24 @@ def selection():   #selekcja
     nowa_lista = random.sample(ile_os_list, k=len(ile_os_list), counts=wagi) #losuje k ellementów z ille os list z czego te elelmeenty maja prawdopodobnienstwo wypadnieecia z listy wagi
     ile_os_list = nowa_lista
 
+
 def sortt():
     ile_os_list.sort(key=lambda x: count_road(x))
     xxx = int(count_road(ile_os_list[0]))
     xxx1 = ile_os_list[0]
     print(int(xxx))
     print(ile_os_list[0])
-    with open("esi_db.txt", "a") as f:
-        print(f"{xxx1} {xxx}", file=f)
-        print("", file=f)
+    if (list_length == 144):
+        with open("esi_db_144.txt", "a") as f:
+            for i in xxx1:
+                f.write(str(i) + ' ')
+            f.write(str(xxx) + "\n")
+    else:
+        with open("esi_db_127.txt", "a") as f:
+            for i in xxx1:
+                f.write(str(i) + ' ')
+            f.write(str(xxx) + "\n")
+
 def start():
     czas = int(input("Podaj czas wykonywania programu w sekundach: "))
     startTime = time.time()
@@ -133,8 +126,7 @@ def start():
             mutation()
             selection()
         sortt()
-    with open("esi_db.txt", "a") as f:
-        print("******************************", file=f)
+
 
 
 ile_os = 200
@@ -150,8 +142,7 @@ ile_os_list = []
 intersection_list_results = []
 mutation_list = []
 list_144 = []
-#do_144()
-#do_127()
+
 start()
 
 
