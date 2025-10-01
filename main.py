@@ -85,8 +85,13 @@ def mutation():   #mutacja
 def count_road(arrr):
     result_xy = 0.0
     for a in range(0, len(arrr)-1):
-        result_xy += math.fabs(tup_144[arrr[a]][0] - tup_144[arrr[a+1]][0]) + math.fabs(tup_144[arrr[a]][1] - tup_144[arrr[a+1]][1])
-    result_xy += math.fabs(tup_144[arrr[0]][0] - tup_144[arrr[-1]][0]) + math.fabs(tup_144[arrr[0]][1] - tup_144[arrr[-1]][1])
+                dx = tup_144[arrr[a]][0] - tup_144[arrr[a+1]][0]
+                result_xy += math.hypot(dx, dy)
+        
+      dx = tup_144[arrr[0]][0] - tup_144[arrr[-1]][0]
+    dy = tup_144[arrr[0]][1] - tup_144[arrr[-1]][1]
+    result_xy += math.hypot(dx, dy)
+
     return result_xy
 def selection():   #selekcja
 
@@ -144,5 +149,6 @@ mutation_list = []
 list_144 = []
 
 start()
+
 
 
